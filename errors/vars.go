@@ -11,4 +11,6 @@ var (
 	ErrGender = NewError(422, 1001, "Jenis kelamin dan tanggal lahir, gagal diketahui")
 	// ErrMonth month code is invalid
 	ErrMonth = NewError(422, 1002, "Tanggal lahir gagal diketahui.")
+	// ErrInvalidID the id is invalid or not a string of number
+	ErrInvalidID = NewError(422, 1006, "ID yang dimasukkan tidak valid.")
 )

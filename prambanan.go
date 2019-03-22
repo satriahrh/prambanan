@@ -26,11 +26,11 @@ func (n *Prambanan) DecodeNIK(ctx context.Context, nik string) (result Result, e
 	provinceID := nik[:2]
 	cityID := nik[:4]
 	districtID := nik[:6]
-	result.Province, err = n.Database.GetProvinceByID(provinceID)
+	result.Province, err = n.Database.GetProvinceByID(ctx, provinceID)
 	if err == nil {
-		result.City, err = n.Database.GetCityByID(provinceID, cityID)
+		result.City, err = n.Database.GetCityByID(ctx, provinceID, cityID)
 		if err == nil {
-			result.District, err = n.Database.GetDistrictByID(cityID, districtID)
+			result.District, err = n.Database.GetDistrictByID(ctx, cityID, districtID)
 		}
 	}
 	if err != nil {

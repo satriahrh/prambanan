@@ -1,5 +1,9 @@
 package prambanan
 
+import (
+	"context"
+)
+
 // Prambanan main struct of the project
 type Prambanan struct {
 	Database Database
@@ -7,9 +11,9 @@ type Prambanan struct {
 
 // Database interface of the database
 type Database interface {
-	GetProvinceByID(id string) (province string, err error)
-	GetCityByID(provinceID, id string) (city string, err error)
-	GetDistrictByID(cityID, id string) (district string, err error)
+	GetProvinceByID(ctx context.Context, id string) (province string, err error)
+	GetCityByID(ctx context.Context, provinceID, id string) (city string, err error)
+	GetDistrictByID(ctx context.Context, cityID, id string) (district string, err error)
 }
 
 // Result hold the result of nik decoder

@@ -14,9 +14,10 @@ import (
 )
 
 func main() {
+	cwd, _ := os.Getwd()
 	err := gotenv.Load(path.Join(
-		os.Getenv("GOPATH"),
-		"/src/github.com/helloproclub/prambanan/.env",
+		cwd,
+		".env",
 	))
 	if err != nil {
 		log.Errorln(err)
